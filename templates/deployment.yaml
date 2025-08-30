@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx 
+    demo: helm
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector: # These labels are used to find the pods
+    matchLabels:
+      app: nginx 
+      demo: helm
+  template: # pod-definition
+    metadata:
+      labels:
+        app: nginx 
+        demo: helm
+    spec:
+      containers:
+      - name: nginx
+        # image: nginx:stable-alpine3.21-perl 
+        image: nginx:mainline-alpine3.22
