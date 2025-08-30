@@ -7,7 +7,7 @@ metadata:
     demo: helm
 spec:
   # modify replicas according to your case
-  replicas: {{ .Values.deployment.replicas }}
+  replicas: {{ .Values.deployment.replicas }} #Values should start with capital 'V'
   selector: # These labels are used to find the pods
     matchLabels:
       app: nginx 
